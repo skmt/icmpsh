@@ -1,0 +1,43 @@
+= ICMPSH PROJECT =
+
+icmpsh provides an interface to use terminal on icmp instead of tcp, using raw socket.
+
+
+= PREPARATION (HOW TO BUILD THIS PROGRAM) =
+
+just type 'make' on terminal.
+
+
+= PROGRAMS =
+
+icmpshd     server program
+icmpsh      client program
+
+
+= HOW TO USE =
+
+- icmpshd
+this program needs root privilege, so that have to type the following with sudo,
+
+  bash$ sudo ./icmpshd
+
+if binding local address, which means "127.0.0.1" or "localhost", just type the above,
+but in case of binding another ip address, specify ip address as the following,
+
+  bash$ sudo ./icmpshd -i 192.168.9.2
+
+as default icmpshd runs background without any messages on your terminal, if want to run it
+as foreground process to check debug information, use "-d" flag as the following,
+
+  bash$ sudo ./icmpshd -d -i 192.168.9.2
+
+
+- icmpsh
+in case of using on local host only, just type the following,
+
+  bash$ ./icmpsh
+
+if connecting remote icmpshd, specify icmpshd server's ip address,
+
+  bash$ ./icmpsh 192.168.9.2
+
